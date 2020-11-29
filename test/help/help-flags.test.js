@@ -30,7 +30,7 @@ describe('commands help', () => {
         expect(stderr).toHaveLength(0);
     });
 
-    it('log show help for --mode', () => {
+    it('log help for --mode', () => {
         const { stdout, stderr, exitCode } = run(__dirname, ['--mode', '--help'], false);
 
         expect(exitCode).toBe(0);
