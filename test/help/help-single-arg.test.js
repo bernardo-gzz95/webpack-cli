@@ -1,7 +1,7 @@
 'use strict';
 
 const { yellow, options } = require('colorette');
-const { run, isWebpack5 } = require('../utils/test-utils');
+const { run } = require('../utils/test-utils');
 const helpHeader = 'The build tool for modern web applications';
 
 describe('single help flag', () => {
@@ -25,9 +25,7 @@ describe('single help flag', () => {
         expect(exitCode).toBe(0);
         expect(stdout).toContain(helpHeader);
         expect(stdout).toContain('-t, --target');
-        if (isWebpack5) {
-            expect(stdout).not.toContain('--output-library-amd');
-        }
+        expect(stdout).not.toContain('--config-name'); // an advanced option
         expect(stderr).toHaveLength(0);
     });
 
@@ -37,9 +35,7 @@ describe('single help flag', () => {
         expect(exitCode).toBe(0);
         expect(stdout).toContain(helpHeader);
         expect(stdout).toContain('-t, --target');
-        if (isWebpack5) {
-            expect(stdout).not.toContain('--output-library-amd');
-        }
+        expect(stdout).not.toContain('--config-name'); // an advanced option
         expect(stderr).toHaveLength(0);
     });
 
@@ -48,9 +44,7 @@ describe('single help flag', () => {
 
         expect(exitCode).toBe(0);
         expect(stdout).toContain(helpHeader);
-        if (isWebpack5) {
-            expect(stdout).toContain('--output-library-amd');
-        }
+        expect(stdout).toContain('--config-name'); // an advanced option
         expect(stderr).toHaveLength(0);
     });
 
@@ -59,9 +53,7 @@ describe('single help flag', () => {
 
         expect(exitCode).toBe(0);
         expect(stdout).toContain(helpHeader);
-        if (isWebpack5) {
-            expect(stdout).toContain('--output-library-amd');
-        }
+        expect(stdout).toContain('--config-name'); // an advanced option
         expect(stderr).toHaveLength(0);
     });
 
@@ -70,9 +62,7 @@ describe('single help flag', () => {
 
         expect(exitCode).toBe(0);
         expect(stdout).toContain(helpHeader);
-        if (isWebpack5) {
-            expect(stdout).toContain('--output-library-amd');
-        }
+        expect(stdout).toContain('--config-name'); // an advanced option
         expect(stderr).toHaveLength(0);
     });
 });
